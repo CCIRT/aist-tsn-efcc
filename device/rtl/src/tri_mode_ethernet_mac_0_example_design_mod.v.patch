@@ -1,0 +1,325 @@
+2c2
+< // File       : tri_mode_ethernet_mac_0_example_design.v
+---
+> // File       : tri_mode_ethernet_mac_0_example_design_mod.v
+133c133
+< module tri_mode_ethernet_mac_0_example_design
+---
+> module tri_mode_ethernet_mac_0_example_design_mod
+218,222c218,222
+<       // rx mac AXI-Stream interface
+<       input    [7:0]    rx_axis_mac_tdata,
+<       input             rx_axis_mac_tvalid,
+<       input             rx_axis_mac_tlast,
+<       input             rx_axis_mac_tuser,
+---
+>       // // rx mac AXI-Stream interface
+>       // input    [7:0]    rx_axis_mac_tdata,
+>       // input             rx_axis_mac_tvalid,
+>       // input             rx_axis_mac_tlast,
+>       // input             rx_axis_mac_tuser,
+232,237c232,237
+<       // tx mac AXI-Stream interface
+<       output   [7:0]    tx_axis_mac_tdata,
+<       output            tx_axis_mac_tvalid,
+<       output            tx_axis_mac_tlast,
+<       input             tx_axis_mac_tready,
+<       output            tx_axis_mac_tuser,
+---
+>       // // tx mac AXI-Stream interface
+>       // output   [7:0]    tx_axis_mac_tdata,
+>       // output            tx_axis_mac_tvalid,
+>       // output            tx_axis_mac_tlast,
+>       // input             tx_axis_mac_tready,
+>       // output            tx_axis_mac_tuser,
+657a658
+>   reg                 pause_req_s_sync_gtx_clk_bak;
+659a661
+>      pause_req_s_sync_gtx_clk_bak = pause_req_s_sync_gtx_clk;
+665c667
+<      if (pause_shift[18] == 1'b0 & pause_shift[17] == 1'b1 & pause_shift[0] == 1'b1) begin
+---
+>      if (pause_req_s_sync_gtx_clk && !pause_req_s_sync_gtx_clk_bak) begin  // FIFO almost_full is asserted
+667c669,673
+<         pause_val <= pause_shift[16:1];
+---
+>         pause_val <= 16'd375; // 192000 ns => 3000 Byte @ 1GbE
+>      end
+>      else if (!pause_req_s_sync_gtx_clk && pause_req_s_sync_gtx_clk_bak) begin  // FIFO almost_full is deasserted
+>         pause_req <= 1'b1;
+>         pause_val <= 16'd0;
+679c685
+<    tri_mode_ethernet_mac_0_axi_lite_sm axi_lite_controller (
+---
+>    tri_mode_ethernet_mac_0_axi_lite_sm_mod axi_lite_controller (
+715,725c721,722
+<   tri_mode_ethernet_mac_0_fifo_block trimac_fifo_block (
+<       .gtx_clk                      (gtx_clk_bufg),
+< 
+< 
+<       // asynchronous reset
+<       // .glbl_rstn                    (glbl_rst_intn),
+<       // .rx_axi_rstn                  (1'b1),
+<       // .tx_axi_rstn                  (1'b1),
+< 
+<       // Reference clock for IDELAYCTRL's
+<       // .refclk                       (refclk_bufg),
+---
+> //   tri_mode_ethernet_mac_0_fifo_block trimac_fifo_block (
+> //       .gtx_clk                      (gtx_clk_bufg),
+727,747d723
+<       // Receiver Statistics Interface
+<       //---------------------------------------
+<       .rx_mac_aclk                  (rx_axis_mac_aclk),
+<       .rx_reset                     (rx_reset),
+<       // .rx_statistics_vector         (rx_statistics_vector),
+<       // .rx_statistics_valid          (rx_statistics_valid),
+< 
+<       // Receiver (AXI-S) Interface
+<       //----------------------------------------
+<       .rx_fifo_clock                (rx_fifo_clock),
+<       .rx_fifo_resetn               (rx_fifo_resetn),
+<       .rx_axis_fifo_tdata           (rx_axis_fifo_tdata),
+<       .rx_axis_fifo_tvalid          (rx_axis_fifo_tvalid),
+<       .rx_axis_fifo_tready          (rx_axis_fifo_tready),
+<       .rx_axis_fifo_tlast           (rx_axis_fifo_tlast),
+< 
+<       // rx mac AXI-Stream interface
+<       .rx_axis_mac_tdata            (rx_axis_mac_tdata),
+<       .rx_axis_mac_tvalid           (rx_axis_mac_tvalid),
+<       .rx_axis_mac_tlast            (rx_axis_mac_tlast),
+<       .rx_axis_mac_tuser            (rx_axis_mac_tuser),
+749,776c725,829
+<       // Transmitter Statistics Interface
+<       //------------------------------------------
+<       .tx_mac_aclk                  (tx_axis_mac_aclk),
+<       .tx_reset                     (tx_reset),
+<       // .tx_ifg_delay                 (tx_ifg_delay),
+<       // .tx_statistics_vector         (tx_statistics_vector),
+<       // .tx_statistics_valid          (tx_statistics_valid),
+< 
+<       // Transmitter (AXI-S) Interface
+<       //-------------------------------------------
+<       .tx_fifo_clock                (tx_fifo_clock),
+<       .tx_fifo_resetn               (tx_fifo_resetn),
+<       .tx_axis_fifo_tdata           (tx_axis_fifo_tdata),
+<       .tx_axis_fifo_tvalid          (tx_axis_fifo_tvalid),
+<       .tx_axis_fifo_tready          (tx_axis_fifo_tready),
+<       .tx_axis_fifo_tlast           (tx_axis_fifo_tlast),
+< 
+<       // tx mac AXI-Stream interface
+<       .tx_axis_mac_tdata              (tx_axis_mac_tdata),
+<       .tx_axis_mac_tvalid             (tx_axis_mac_tvalid),
+<       .tx_axis_mac_tlast              (tx_axis_mac_tlast),
+<       .tx_axis_mac_tready             (tx_axis_mac_tready),
+<       .tx_axis_mac_tuser              (tx_axis_mac_tuser)
+< 
+<       // MAC Control Interface
+<       //------------------------
+<       // .pause_req                    (pause_req),
+<       // .pause_val                    (pause_val),
+---
+> //       // asynchronous reset
+> //       // .glbl_rstn                    (glbl_rst_intn),
+> //       // .rx_axi_rstn                  (1'b1),
+> //       // .tx_axi_rstn                  (1'b1),
+> 
+> //       // Reference clock for IDELAYCTRL's
+> //       // .refclk                       (refclk_bufg),
+> 
+> //       // Receiver Statistics Interface
+> //       //---------------------------------------
+> //       .rx_mac_aclk                  (rx_axis_mac_aclk),
+> //       .rx_reset                     (rx_reset),
+> //       // .rx_statistics_vector         (rx_statistics_vector),
+> //       // .rx_statistics_valid          (rx_statistics_valid),
+> 
+> //       // Receiver (AXI-S) Interface
+> //       //----------------------------------------
+> //       .rx_fifo_clock                (rx_fifo_clock),
+> //       .rx_fifo_resetn               (rx_fifo_resetn),
+> //       .rx_axis_fifo_tdata           (rx_axis_fifo_tdata),
+> //       .rx_axis_fifo_tvalid          (rx_axis_fifo_tvalid),
+> //       .rx_axis_fifo_tready          (rx_axis_fifo_tready),
+> //       .rx_axis_fifo_tlast           (rx_axis_fifo_tlast),
+> 
+> //       // rx mac AXI-Stream interface
+> //       .rx_axis_mac_tdata            (rx_axis_mac_tdata),
+> //       .rx_axis_mac_tvalid           (rx_axis_mac_tvalid),
+> //       .rx_axis_mac_tlast            (rx_axis_mac_tlast),
+> //       .rx_axis_mac_tuser            (rx_axis_mac_tuser),
+> 
+> //       // Transmitter Statistics Interface
+> //       //------------------------------------------
+> //       .tx_mac_aclk                  (tx_axis_mac_aclk),
+> //       .tx_reset                     (tx_reset),
+> //       // .tx_ifg_delay                 (tx_ifg_delay),
+> //       // .tx_statistics_vector         (tx_statistics_vector),
+> //       // .tx_statistics_valid          (tx_statistics_valid),
+> 
+> //       // Transmitter (AXI-S) Interface
+> //       //-------------------------------------------
+> //       .tx_fifo_clock                (tx_fifo_clock),
+> //       .tx_fifo_resetn               (tx_fifo_resetn),
+> //       .tx_axis_fifo_tdata           (tx_axis_fifo_tdata),
+> //       .tx_axis_fifo_tvalid          (tx_axis_fifo_tvalid),
+> //       .tx_axis_fifo_tready          (tx_axis_fifo_tready),
+> //       .tx_axis_fifo_tlast           (tx_axis_fifo_tlast),
+> 
+> //       // tx mac AXI-Stream interface
+> //       .tx_axis_mac_tdata              (tx_axis_mac_tdata),
+> //       .tx_axis_mac_tvalid             (tx_axis_mac_tvalid),
+> //       .tx_axis_mac_tlast              (tx_axis_mac_tlast),
+> //       .tx_axis_mac_tready             (tx_axis_mac_tready),
+> //       .tx_axis_mac_tuser              (tx_axis_mac_tuser)
+> 
+> //       // MAC Control Interface
+> //       //------------------------
+> //       // .pause_req                    (pause_req),
+> //       // .pause_val                    (pause_val),
+> 
+> //       // RGMII Interface
+> //       //------------------
+> //       // .rgmii_txd                    (rgmii_txd),
+> //       // .rgmii_tx_ctl                 (rgmii_tx_ctl),
+> //       // .rgmii_txc                    (rgmii_txc),
+> //       // .rgmii_rxd                    (rgmii_rxd),
+> //       // .rgmii_rx_ctl                 (rgmii_rx_ctl),
+> //       // .rgmii_rxc                    (rgmii_rxc),
+> 
+> //       // RGMII Inband Status Registers
+> //       //--------------------------------
+> //       // .inband_link_status           (inband_link_status),
+> //       // .inband_clock_speed           (inband_clock_speed),
+> //       // .inband_duplex_status         (inband_duplex_status),
+> 
+> 
+> //       // MDIO Interface
+> //       //---------------
+> //       // .mdio                         (mdio),
+> //       // .mdc                          (mdc),
+> 
+> //       // AXI-Lite Interface
+> //       //---------------
+> //       // .s_axi_aclk                   (s_axi_aclk),
+> //       // .s_axi_resetn                 (s_axi_resetn),
+> //       //
+> //       // .s_axi_awaddr                 (s_axi_awaddr),
+> //       // .s_axi_awvalid                (s_axi_awvalid),
+> //       // .s_axi_awready                (s_axi_awready),
+> //       //
+> //       // .s_axi_wdata                  (s_axi_wdata),
+> //       // .s_axi_wvalid                 (s_axi_wvalid),
+> //       // .s_axi_wready                 (s_axi_wready),
+> //       //
+> //       // .s_axi_bresp                  (s_axi_bresp),
+> //       // .s_axi_bvalid                 (s_axi_bvalid),
+> //       // .s_axi_bready                 (s_axi_bready),
+> //       //
+> //       // .s_axi_araddr                 (s_axi_araddr),
+> //       // .s_axi_arvalid                (s_axi_arvalid),
+> //       // .s_axi_arready                (s_axi_arready),
+> //       //
+> //       // .s_axi_rdata                  (s_axi_rdata),
+> //       // .s_axi_rresp                  (s_axi_rresp),
+> //       // .s_axi_rvalid                 (s_axi_rvalid),
+> //       // .s_axi_rready                 (s_axi_rready)
+778,825c831
+<       // RGMII Interface
+<       //------------------
+<       // .rgmii_txd                    (rgmii_txd),
+<       // .rgmii_tx_ctl                 (rgmii_tx_ctl),
+<       // .rgmii_txc                    (rgmii_txc),
+<       // .rgmii_rxd                    (rgmii_rxd),
+<       // .rgmii_rx_ctl                 (rgmii_rx_ctl),
+<       // .rgmii_rxc                    (rgmii_rxc),
+< 
+<       // RGMII Inband Status Registers
+<       //--------------------------------
+<       // .inband_link_status           (inband_link_status),
+<       // .inband_clock_speed           (inband_clock_speed),
+<       // .inband_duplex_status         (inband_duplex_status),
+< 
+< 
+<       // MDIO Interface
+<       //---------------
+<       // .mdio                         (mdio),
+<       // .mdc                          (mdc),
+< 
+<       // AXI-Lite Interface
+<       //---------------
+<       // .s_axi_aclk                   (s_axi_aclk),
+<       // .s_axi_resetn                 (s_axi_resetn),
+<       //
+<       // .s_axi_awaddr                 (s_axi_awaddr),
+<       // .s_axi_awvalid                (s_axi_awvalid),
+<       // .s_axi_awready                (s_axi_awready),
+<       //
+<       // .s_axi_wdata                  (s_axi_wdata),
+<       // .s_axi_wvalid                 (s_axi_wvalid),
+<       // .s_axi_wready                 (s_axi_wready),
+<       //
+<       // .s_axi_bresp                  (s_axi_bresp),
+<       // .s_axi_bvalid                 (s_axi_bvalid),
+<       // .s_axi_bready                 (s_axi_bready),
+<       //
+<       // .s_axi_araddr                 (s_axi_araddr),
+<       // .s_axi_arvalid                (s_axi_arvalid),
+<       // .s_axi_arready                (s_axi_arready),
+<       //
+<       // .s_axi_rdata                  (s_axi_rdata),
+<       // .s_axi_rresp                  (s_axi_rresp),
+<       // .s_axi_rvalid                 (s_axi_rvalid),
+<       // .s_axi_rready                 (s_axi_rready)
+< 
+<    );
+---
+> //    );
+832,854c838,860
+<    tri_mode_ethernet_mac_0_basic_pat_gen basic_pat_gen_inst (
+<       .axi_tclk                     (tx_fifo_clock),
+<       .axi_tresetn                  (tx_fifo_resetn),
+<       .check_resetn                 (chk_resetn),
+< 
+<       .enable_pat_gen               (gen_tx_data_sync_gtx_clk),
+<       .enable_pat_chk               (chk_tx_data_sync_gtx_clk),
+<       .enable_address_swap          (enable_address_swap),
+<       .speed                        (mac_speed_sync_gtx_clk),
+<       .rx_axis_tdata                (rx_axis_fifo_tdata),
+<       .rx_axis_tvalid               (rx_axis_fifo_tvalid),
+<       .rx_axis_tlast                (rx_axis_fifo_tlast),
+<       .rx_axis_tuser                (1'b0), // the FIFO drops all bad frames
+<       .rx_axis_tready               (rx_axis_fifo_tready),
+< 
+<       .tx_axis_tdata                (tx_axis_fifo_tdata),
+<       .tx_axis_tvalid               (tx_axis_fifo_tvalid),
+<       .tx_axis_tlast                (tx_axis_fifo_tlast),
+<       .tx_axis_tready               (tx_axis_fifo_tready),
+< 
+<       .frame_error                  (int_frame_error),
+<       .activity_flash               (int_activity_flash)
+<    );
+---
+>    // tri_mode_ethernet_mac_0_basic_pat_gen basic_pat_gen_inst (
+>    //    .axi_tclk                     (tx_fifo_clock),
+>    //    .axi_tresetn                  (tx_fifo_resetn),
+>    //    .check_resetn                 (chk_resetn),
+> 
+>    //    .enable_pat_gen               (gen_tx_data_sync_gtx_clk),
+>    //    .enable_pat_chk               (chk_tx_data_sync_gtx_clk),
+>    //    .enable_address_swap          (1'b0),
+>    //    .speed                        (mac_speed_sync_gtx_clk),
+>    //    .rx_axis_tdata                (rx_axis_fifo_tdata),
+>    //    .rx_axis_tvalid               (rx_axis_fifo_tvalid),
+>    //    .rx_axis_tlast                (rx_axis_fifo_tlast),
+>    //    .rx_axis_tuser                (1'b0), // the FIFO drops all bad frames
+>    //    .rx_axis_tready               (rx_axis_fifo_tready),
+> 
+>    //    .tx_axis_tdata                (tx_axis_fifo_tdata),
+>    //    .tx_axis_tvalid               (tx_axis_fifo_tvalid),
+>    //    .tx_axis_tlast                (tx_axis_fifo_tlast),
+>    //    .tx_axis_tready               (tx_axis_fifo_tready),
+> 
+>    //    .frame_error                  (int_frame_error),
+>    //    .activity_flash               (int_activity_flash)
+>    // );
