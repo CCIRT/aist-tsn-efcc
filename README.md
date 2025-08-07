@@ -67,3 +67,11 @@ Copyright (c) 2024-2025 National Institute of Advanced Industrial Science and Te
 All rights reserved.
 
 This software is released under the [MIT License](LICENSE).
+
+
+## Acknowledgment
+
+This program is based on results obtained from the project, "Research and
+Development Project of the Enhanced infrastructures for Post 5G Information and
+Communication Systems" (JPNP20017), commissioned by the New Energy and
+Industrial Technology Development Organization (NEDO).
