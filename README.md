@@ -8,7 +8,7 @@ This repository repository is part of the [AIST TSN](https://github.com/CCIRT/ai
 - Ethernet Frame Capture
   - This module outputs the input Ethernet frames as they are with zero latency.
   - It also extracts the ID information from the frames received from the Ethernet Frame Crafter and records the ID information and the time when the frames were input to BRAM.
-  - [Specification](./docs/ef_apture/specification.md)
+  - [Specification](./docs/ef_capture/specification.md)
 - Sample design for 1GbE (KC705)
   - [FPGA design docs](./docs/sample_design-1g/design_top.md)
 
