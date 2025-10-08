@@ -1,9 +1,6 @@
-# TSN EFCC: Ethernet Frame Crafter & Capture for TSN research
+# EFCC: Ethernet Frame Crafter & Capture for TSN research
 
-## What is this repository?
-
-This repository is created for "TSN EFCC" project with AIST.
-IP or designs for the KC705, U45N and U250 are included.
+This repository repository is part of the [AIST TSN](https://github.com/CCIRT/aist-tsn) project. It includes Ethernet Frame Crafter & Capture (EFCC), a flexible FPGA-based frame generation and capture measurement tool for TSN research and developement. EFCC is capable of generating multiple TSN flows with different characteristics, where the frame size, frame rate, and burst size are independently set for each flow. In addition, it can record the arrival times of all the frames with a high-precision hardware clock without any loss of the arrival time records, even with the shortest frame size. IP and designs for the AMD Xilinx KC705 FPGA evalauation board are included:
 
 - Ethernet Frame Crafter
   - This module generates and transmits Ethernet frames based on the information written in BRAM.
@@ -11,11 +8,9 @@ IP or designs for the KC705, U45N and U250 are included.
 - Ethernet Frame Capture
   - This module outputs the input Ethernet frames as they are with zero latency.
   - It also extracts the ID information from the frames received from the Ethernet Frame Crafter and records the ID information and the time when the frames were input to BRAM.
-  - [Specification](./docs/ef_apture/specification.md)
+  - [Specification](./docs/ef_capture/specification.md)
 - Sample design for 1GbE (KC705)
   - [FPGA design docs](./docs/sample_design-1g/design_top.md)
-- Sample design for 10GbE (U45N or U250)
-  - [FPGA design docs](./docs/sample_design-10g/design_top.md)
 
 ## Build Device
 
@@ -41,17 +36,12 @@ Alternatively, build them individually by doing the following.
 ```sh
 cd <Repository top>
 ./build_device.sh impl_sample_design-1g
-./build_device.sh impl_sample_design-10g_u45n
-./build_device.sh impl_sample_design-10g_u250
 ```
 
 Bitstreams will be generated below.
 
 - Sample design
   - build-device/vivado/sample_design-1g/sample_design-1g.prj/sample_design-1g.runs/impl_1/design_1_wrapper.bit
-  - build-device/vivado/sample_design-10g/sample_design-10g_u45n.prj/sample_design-10g_u45n.runs/impl_1/design_1_wrapper.bit
-  - build-device/vivado/sample_design-10g/sample_design-10g_u250.prj/sample_design-10g_u250.runs/impl_1/design_1_wrapper.bit
-
 ## Directories
 
 ```
@@ -61,7 +51,6 @@ Bitstreams will be generated below.
 ├── docs        : Documentation
 ├── evaluation  : Evaluation data
 ├── example     : Examples written in Jupyter Notebook for 1G sample design
-├── example_10g : Examples written in Jupyter Notebook for 10G sample design
 └── util        : Helper scripts for TSN EFCC
 ```
 
@@ -78,3 +67,11 @@ Copyright (c) 2024-2025 National Institute of Advanced Industrial Science and Te
 All rights reserved.
 
 This software is released under the [MIT License](LICENSE).
+
+
+## Acknowledgment
+
+This program is based on results obtained from the project, "Research and
+Development Project of the Enhanced infrastructures for Post 5G Information and
+Communication Systems" (JPNP20017), commissioned by the New Energy and
+Industrial Technology Development Organization (NEDO).
