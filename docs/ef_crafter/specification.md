@@ -5,7 +5,7 @@ This document describes specifications of the Ethernet Frame Crafter implemented
 ## Basic specifications
 
 - This module generates and transmits frames based on the transmit frame information written to BRAM in advance
-- Support 1000BASE-T and 10GBASE-T
+- Support 1000BASE-T
 - Supported Ethernet frame list
   - Ethernet II
   - IEEE 802.3ac
