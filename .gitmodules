@@ -1,0 +1,7 @@
+[submodule "3rdparty/ethernet-fmc-processorless"]
+	path = 3rdparty/ethernet-fmc-processorless
+	url = https://github.com/fpgadeveloper/ethernet-fmc-processorless.git
+[submodule "3rdparty/xg_mac"]
+	path = 3rdparty/xg_mac
+	url = https://github.com/fixstars/xg_mac
+	ignore = dirty
