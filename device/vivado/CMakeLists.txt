@@ -4,4 +4,3 @@
 # http://opensource.org/licenses/mit-license.php
 
 add_subdirectory(sample_design-1g)
-add_subdirectory(sample_design-10g)
