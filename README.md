@@ -12,12 +12,12 @@ This repository repository is part of the [AIST TSN](https://github.com/CCIRT/ai
 - Sample design for 1GbE (KC705)
   - [FPGA design docs](./docs/sample_design-1g/design_top.md)
 
-## Publications
+## Publication
 
-When using the provided designs in this repository, please refer to the following citations:
+When using the provided designs in this repository, please refer to the following citation:
 
-AIST-TSN-EFCC:
-> Akram BEN AHMED, Takahiro HIROFUCHI, and Takaaki FUKAI, "EFCC: Ethernet Frame Crafter & Capture for TSN Research", The 50th IEEE Conference on Local Computer Networks [LCN2025](https://ieeexplore.ieee.org/document/11146312), October 2025
+> Akram BEN AHMED, Takahiro HIROFUCHI, and Takaaki FUKAI, "EFCC: Ethernet Frame Crafter & Capture for TSN Research", The 50th IEEE Conference on Local Computer Networks (LCN2025), pp. 1-9, October 2025, doi: 10.1109/LCN65610.2025.11146312, https://ieeexplore.ieee.org/document/11146312, Best Paper Award Candidate🏆
+
 
 ## Build Device
 
