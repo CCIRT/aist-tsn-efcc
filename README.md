@@ -18,7 +18,7 @@ When using the provided designs in this repository, please refer to the followin
 
 > Akram BEN AHMED, Takahiro HIROFUCHI, and Takaaki FUKAI, "EFCC: Ethernet Frame Crafter & Capture for TSN Research", The 50th IEEE Conference on Local Computer Networks (LCN2025), pp. 1-9, October 2025, doi: 10.1109/LCN65610.2025.11146312, https://ieeexplore.ieee.org/document/11146312
 >
-> [Paper](./docs/LCN2025_paper.pdf) [Slides](./docs/LCN2025_slides.pdf)
+> [Paper](./docs/LCN2025_paper.pdf) ; [Slides](./docs/LCN2025_slides.pdf)
 >
 > Best Paper Award Candidate🏆
 
