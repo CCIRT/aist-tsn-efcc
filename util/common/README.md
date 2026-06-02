@@ -4,10 +4,10 @@ This directory contains Python scripts that facilitate register modification in 
 
 ## Prerequisites
 
-**Important**: Please clone the tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
+**Important**: Please clone the aist-tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
 ```shell
-├── tsn-switch
-└── tsn-efcc
+├── aist-tsn-switch
+└── aist-tsn-efcc
     ├── :
     ├── evaluation
     ├── :
@@ -23,7 +23,7 @@ $ export PYTHONPATH=$(pwd)/../../tsn-switch/util/python:${PYTHONPATH}
 Test importing.
 
 ```sh
-$ python3 -c "import tsn_efcc" && echo "Import succeed""
+$ python3 -c "import tsn_efcc" && echo "Import succeed"
 Import succeed
 ```
 

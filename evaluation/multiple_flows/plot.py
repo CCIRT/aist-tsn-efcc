@@ -14,7 +14,7 @@ import sys
 SWITCH_ROOT = os.getenv('SWITCH_ROOT')
 
 if SWITCH_ROOT is None:
-    raise ValueError(f'Please set path to the tsn-switch repository in SWITCH_ROOT environment variable.')
+    raise ValueError(f'Please set path to the aist-tsn-switch repository in SWITCH_ROOT environment variable.')
 
 sys.path.append(f'{SWITCH_ROOT}/evaluation2/cbs/common_script')
 from plot_util import DiffSummary, TimestampSummary, save_plt_tight

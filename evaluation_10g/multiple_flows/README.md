@@ -84,14 +84,14 @@ fport2 --- sport2
 
 This experiment requires another U45N board to implement ATS switch.  
 
-1. Clone tsn-switch repository and generate a bitstream for ats-switch design.
-    - For details, please see the tsn-switch README.
+1. Clone aist-tsn-switch repository and generate a bitstream for ats-switch design.
+    - For details, please see the aist-tsn-switch README.
 2. Connect one U45N or U250 and another U45N to the same PC.
 3. Write [sample-design-10g](../../docs/sample_design-10g/) bitstream to one U45N or U250 board, and ats-switch bitstream to the other U45N board.
     - Please check the `JTAG2AXI` target of each design here.
 4. Connect the each port of each FMC via Ethernet cable
-5. set the tsn-switch repository path to `SWITCH_ROOT` environment variable.
-    - `export SWITCH_ROOT=<path-to-tsn-switch>`
+5. set the aist-tsn-switch repository path to `SWITCH_ROOT` environment variable.
+    - `export SWITCH_ROOT=<path-to-aist-tsn-switch>`
 
 ## How to run evaluation
 

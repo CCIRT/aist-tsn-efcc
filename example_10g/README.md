@@ -9,10 +9,10 @@ This directory contains examples of how to use TSN EFCC written in Jupyter Noteb
 - [README.md](./README.md): This file
 
 ## Note
-**Important**: Please clone the tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
+**Important**: Please clone the aist-tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
 ```shell
-├── tsn-switch
-└── tsn-efcc
+├── aist-tsn-switch
+└── aist-tsn-efcc
     ├── :
     ├── example_10g
     ├── :
@@ -28,10 +28,10 @@ Depending on your environment, you may need to change the JTAG2AXI target number
 The procedure for checking and changing this is described in [1_ef_crafter_hello.ipynb](./1_ef_crafter_hello.ipynb), so if necessary please change `xsdb_target` using the same procedure on other notebooks.
 
 ## How to run Jupyter Notebook
-1. Clone the `tsn-switch` repository so that it has the structure described [above](#note).
+1. Clone the `aist-tsn-switch` repository so that it has the structure described [above](#note).
 2. Set the environment variable.
    ```shell
-   $ export PYTHONPATH=$(pwd)/../../tsn-switch/util/python
+   $ export PYTHONPATH=$(pwd)/../../aist-tsn-switch/util/python
    ```
 3. Run jupyterlab.
    1. If you are opening a browser on the machine where you issued the command
@@ -42,7 +42,7 @@ The procedure for checking and changing this is described in [1_ef_crafter_hello
       ```shell
       $ jupyter-lab --ip 0.0.0.0
       ```
-4. The following will appear in the log, so please open it in your preferred browser.   
+4. The following will appear in the log, so please open it in your preferred browser.
    ```shell
    http://localhost:8888/lab?token=<token>
    ```

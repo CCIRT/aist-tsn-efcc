@@ -84,14 +84,14 @@ fport2 --- sport2
 
 This experiment requires another KC705 board with Opsero OP031 Ethernet FMC, to implement ATS switch.  
 
-1. Clone tsn-switch repository and generate a bitstream for ats-switch design.
-    - For details, please see the tsn-switch README.
+1. Clone aist-tsn-switch repository and generate a bitstream for ats-switch design.
+    - For details, please see the aist-tsn-switch README.
 2. Connect JTAG cables of both KC705 to the same PC.
 3. Write [sample-design-1g](../../docs/sample_design-1g/) bitstream to one KC705 board, and ats-switch bitstream to the other KC705 board.
     - Please check the `JTAG2AXI` target of each design here.
 4. Connect the each port of each FMC via Ethernet cable
-5. set the tsn-switch repository path to `SWITCH_ROOT` environment variable.
-    - `export SWITCH_ROOT=<path-to-tsn-switch>`
+5. set the aist-tsn-switch repository path to `SWITCH_ROOT` environment variable.
+    - `export SWITCH_ROOT=<path-to-aist-tsn-switch>`
 
 ## How to run evaluation
 

@@ -11,7 +11,7 @@ import tsn_efcc
 SWITCH_ROOT = os.getenv('SWITCH_ROOT')
 
 if SWITCH_ROOT is None:
-    raise ValueError(f'Please set path to the tsn-switch repository in SWITCH_ROOT environment variable.')
+    raise ValueError(f'Please set path to the aist-tsn-switch repository in SWITCH_ROOT environment variable.')
 
 sys.path.append(f'{SWITCH_ROOT}/evaluation2/ats_10g/common_script')
 import ats_switch_loader as swloader

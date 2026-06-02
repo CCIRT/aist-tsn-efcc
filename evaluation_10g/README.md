@@ -9,10 +9,10 @@ The subdirectories are of the following 2 experiments.
 
 ## Evaluation setup
 
-**Important**: Please clone the tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
+**Important**: Please clone the aist-tsn-switch repository into the parent directory of the directory into which you have cloned this repository, so that the directory structure is as follows
 ```shell
-├── tsn-switch
-└── tsn-efcc
+├── aist-tsn-switch
+└── aist-tsn-efcc
     ├── :
     ├── evaluation_10g
     ├── :
@@ -22,22 +22,22 @@ The following Python modules are required
 - matplotlib
 - numpy
 
-Please set `PYTHONPATH` to include python modules.   
+Please set `PYTHONPATH` to include python modules.  
 This directory contains python modules for TSN EFCC.
 
 ```sh
-$ export PYTHONPATH=$(pwd)/../../tsn-switch/util/python:${PYTHONPATH}
+$ export PYTHONPATH=$(pwd)/../../aist-tsn-switch/util/python:${PYTHONPATH}
 ```
 
 Test importing.
 
 ```sh
-$ python3 -c "import tsn_efcc" && echo "Import succeed""
+$ python3 -c "import tsn_efcc" && echo "Import succeed"
 Import succeed
 ```
 
 Our TSN EFCC uses JTAG interface to apply register settings.  
-Before running evaluations, the users need to find which JTAG target should be used.   
+Before running evaluations, the users need to find which JTAG target should be used.
 
 Connect the JTAG cable to your PC and please run the below command.
 
