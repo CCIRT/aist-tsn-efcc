@@ -8,6 +8,7 @@ This directory contains FPGA designs. (Vivado project)
 
 ```
 ├── sample_design-1g: 1GbE TSN EFCC sample design
+└── sample_design-10g: 10GbE TSN EFCC sample design
 ```
 
 ## Files

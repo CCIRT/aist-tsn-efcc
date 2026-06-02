@@ -20,8 +20,20 @@ This directory contains TCL scripts for ef_crafter.
 `xsdb config_axis_switch.tcl -1 -1 -1 -1 0 1 2 3`
       - set all inputs to drop:  
 `xsdb config_axis_switch.tcl -1 -1 -1 -1 -1 -1 -1 -1` or `xsdb config_axis_switch.tcl -1`
-
-
+- [config_axis_switch_10g.tcl](./config_axis_switch_10g.tcl): Set the input and output settings for the AXI4-Stream Switch (for 10G)
+  - Usage: `xsdb config_axis_switch_10g.tcl` (`<dst MAC0-RX>`) (`<dst MAC1-RX>`) (`<dst MAC2-RX>`) (`<dst MAC3-RX>`) (`<dst MAC4-RX>`) (`<dst MAC5-RX>`) (`<dst MAC6-RX>`) (`<dst MAC7-RX>`) (`<dst FG0>`) (`<dst FG1>`) (`<dst FG2>`) (`<dst FG3>`) (`<dst FG4>`) (`<dst FG5>`) (`<dst FG6>`) (`<dst FG7>`)
+    - Bracketed items are optional
+    - Input from ports with negative values set will be dropped
+    - Input from ports with omitted settings will be dropped
+    - Usage example:
+      - get status only:  
+`xsdb config_axis_switch_10g.tcl`
+      - set `MAC<i>-RX` to `MAC<i>-TX`, for i in (0, 1, 2, ..., 7), and drop the other inputs:  
+`xsdb config_axis_switch_10g.tcl 0 1 2 3 4 5 6 7 -1 -1 -1 -1 -1 -1 -1 -1` or `xsdb config_axis_switch_10g.tcl 0 1 2 3 4 5 6 7`
+      - set `ef_crafter <i>` to `MAC<i>-TX`, for i in (0, 1, 2, ..., 7), and drop the other inputs:  
+`xsdb config_axis_switch_10g.tcl -1 -1 -1 -1 -1 -1 -1 -1 0 1 2 3 4 5 6 7`
+      - set all inputs to drop:  
+`xsdb config_axis_switch_10g.tcl -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1` or `xsdb config_axis_switch_10g.tcl -1`
 - [control_ef_crafter.tcl](./control_ef_crafter.tcl): Control the ef_crafter's operation (for 1G)
   - Usage: `xsdb control_ef_crafter.tcl` (`<run>`) (`<repeat>`) (`<counter_reset>`)
     - Bracketed items are optional
@@ -48,8 +60,36 @@ This directory contains TCL scripts for ef_crafter.
 `xsdb send_command.tcl 0x3`
       - run a single round of the list of transmitted frame information (Port 0, Port 1, Port 2 and Port 3):  
 `xsdb send_command.tcl 0xF`
-
-
+- [control_ef_crafter_10g.tcl](./control_ef_crafter_10g.tcl): Control the ef_crafter's operation (for 10G)
+  - Usage: `xsdb control_ef_crafter_10g.tcl` (`<run>`) (`<repeat>`) (`<counter_reset>`)
+    - Bracketed items are optional
+    - Usage example:
+      - get status only                                                 :  
+`xsdb control_ef_crafter_10g.tcl`
+      - run a single round of the list of transmitted frame information :  
+`xsdb control_ef_crafter_10g.tcl <target>` or `control_ef_crafter_10g.tcl <target> 0`
+      - stop sending frames                                             :  
+`xsdb control_ef_crafter_10g.tcl 0`
+      - run a loop through the list of transmitted frame information    :  
+`xsdb control_ef_crafter_10g.tcl <target> <target>`
+      - reset the counter for the number of frames transmitted          :  
+`xsdb control_ef_crafter_10g.tcl 0 0 <target>`
+    - Multiple targets can be specified simultaneously by the value of `<target>`
+      - [0] (0x01): Port 0 (ef_crafter 0)
+      - [1] (0x02): Port 1 (ef_crafter 1)
+      - [2] (0x04): Port 2 (ef_crafter 2)
+      - [3] (0x08): Port 3 (ef_crafter 3)
+      - [4] (0x10): Port 4 (ef_crafter 4)
+      - [5] (0x20): Port 5 (ef_crafter 5)
+      - [6] (0x40): Port 6 (ef_crafter 6)
+      - [7] (0x80): Port 7 (ef_crafter 7)
+    - More detaied usage example:
+      - run a single round of the list of transmitted frame information (Port 0):  
+`xsdb send_command.tcl 0x1`
+      - run a single round of the list of transmitted frame information (Port 0 and Port 4):  
+`xsdb send_command.tcl 0x11`
+      - run a single round of the list of transmitted frame information (Port 0, Port 1, Port 2, Port 3, Port 4, Port 5, Port 6 and Port 7):  
+`xsdb send_command.tcl 0xFF`
 - [FrameTransmissionInformation.xlsx](./FrameTransmissionInformation.xlsx): Helper Excel file
 - [lut_write.tcl](./lut_write.tcl): Rewrite the IP address lookup table and MAC address lookup table
   - Usage: `xsdb lut_write.tcl`

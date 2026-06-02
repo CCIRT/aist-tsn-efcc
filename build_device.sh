@@ -7,7 +7,7 @@
 TARGET_VIVADO_VERSION=2022.1
 
 #---------------------------------------------------
-all_targets="impl_sample_design-1g"
+all_targets="impl_sample_design-1g impl_sample_design-10g_u45n impl_sample_design-10g_u250"
 
 _usage() {
     echo -e "Usage: $0 [-b <Dir>] [-h] [-V <Vivado Root Dir>] <make targets>..."
@@ -18,8 +18,14 @@ _usage() {
     echo -e "\t<make targets> : Make target list"
     echo -e "\t                   impl_all: build following designs"
     echo -e "\t                     - 1GbE TSN EFCC sample design"
+    echo -e "\t                     - 10GbE TSN EFCC sample design (U45N)"
+    echo -e "\t                     - 10GbE TSN EFCC sample design (U250)"
     echo -e "\t                   impl_sample_design-1g: build the design of 1GbE TSN EFCC sample design"
     echo -e "\t                   open_sample_design-1g: build the design of 1GbE TSN EFCC sample design"
+    echo -e "\t                   impl_sample_design-10g_u45n: build the design of 10GbE TSN EFCC sample design (U45N)"
+    echo -e "\t                   open_sample_design-10g_u45n: build the design of 10GbE TSN EFCC sample design (U45N)"
+    echo -e "\t                   impl_sample_design-10g_u250: build the design of 10GbE TSN EFCC sample design (U250)"
+    echo -e "\t                   open_sample_design-10g_u250: build the design of 10GbE TSN EFCC sample design (U250)"
     echo -e "\t                   run_tb_efcc_modules: run test bench for TSN EFCC modules"
     echo -e "\t                   run_tb_<test_name>: run test bench of the specified module"
     echo -e "\t                     - Note: scapy and iverilog are required"

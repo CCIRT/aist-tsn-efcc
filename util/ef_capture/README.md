@@ -28,6 +28,14 @@ This directory contains TCL scripts for ef_capture.
       - reset write status and get status                       : `xsdb send_command.tcl 1`
       - framecounter reset and get status                       : `xsdb send_command.tcl 0 1`
       - activate write-enable, reset framecounter and get status: `xsdb send_command.tcl 1 1`
+- [send_command_10g.tcl](./send_command_10g.tcl): Control ef_capture (for 10G)
+  - Usage: xsdb send_command_10g.tcl (`<reset>`) (`<framecounter_reset>`)
+    - Bracketed items are optional
+    - Usage example:
+      - get status only                                         : `xsdb send_command_10g.tcl`
+      - reset write status and get status                       : `xsdb send_command_10g.tcl 1`
+      - framecounter reset and get status                       : `xsdb send_command_10g.tcl 0 1`
+      - activate write-enable, reset framecounter and get status: `xsdb send_command_10g.tcl 1 1`
 
 ## Note
 The target number in the scripts may change depending on the environment.
