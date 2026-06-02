@@ -1,6 +1,6 @@
 # 1G Sample design
 
-This document describes the design of a TSN EFCC with four Ethernet Frame Crafters and eight Ethernet Frame Captures implemented in FPGA.
+This document describes the design of a TSN EFCC with four ef_crafters and eight ef_captures implemented in FPGA.
 
 ## Overview
 

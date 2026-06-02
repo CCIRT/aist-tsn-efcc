@@ -1,6 +1,6 @@
 # 10G Sample design
 
-This document describes the design of a 10G TSN EFCC with 8 ef_crafters and 16 ef capture implemented in FPGA.
+This document describes the design of a 10G TSN EFCC with 8 ef_crafters and 16 ef_capture implemented in FPGA.
 
 ## Overview
 

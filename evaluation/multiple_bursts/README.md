@@ -1,6 +1,6 @@
 # Evaluation data of generating and capturing multiple flows capability of TSN EFCC.
 
-This evaluation generate and capture multiple flow frames from Frame Crafters, and evaluate frame latencies.  
+This evaluation generate and capture multiple flow frames from ef_crafters, and evaluate frame latencies.  
 Each flow has different priorities and prioritized by our developing switch called ATS Switch.  
 
 ## Files

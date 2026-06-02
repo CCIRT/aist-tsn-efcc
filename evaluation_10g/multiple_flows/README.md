@@ -1,6 +1,6 @@
 # Evaluation data of generating and capturing multiple flows capability of TSN EFCC.
 
-This evaluation generate and capture multiple flow frames from Frame Generators, and evaluate frame latencies.  
+This evaluation generate and capture multiple flow frames from ef_crafters, and evaluate frame latencies.  
 Each flow has different priorities and prioritized by our developing switch called ATS Switch.  
 
 ## Files
@@ -58,7 +58,7 @@ fport2 --- sport2
 |------|----|--------|--------------|------|------|
 | flow0 | 7 | 84   | 1542 | 1000 Mbps | Port 0 |
 | flow1 | 7 | 1542 | 1542 | 1000 Mbps | Port 1 |
-| flow2 | 6 | 84   | 1542 | 1000 Mbps | Port 1 | 
+| flow2 | 6 | 84   | 1542 | 1000 Mbps | Port 1 |
 | flow3 | 6 | 1542 | 1542 | 1000 Mbps | Port 0 |
 | flow4 | 5 | 1542 | 1542 | 8000 Mbps | Port 0 |
 | flow5 | 5 | 1542 | 1542 | 8000 Mbps | Port 1 |
@@ -72,7 +72,7 @@ fport2 --- sport2
 |------|----|--------|--------------|------|------|
 | flow0 | 7 | 1542 | 3084 | 1000 Mbps | Port 0 |
 | flow1 | 7 | 1542 | 1542 | 1000 Mbps | Port 1 |
-| flow2 | 6 | 1542 | 3084 | 1000 Mbps | Port 1 | 
+| flow2 | 6 | 1542 | 3084 | 1000 Mbps | Port 1 |
 | flow3 | 6 | 1542 | 1542 | 1000 Mbps | Port 0 |
 | flow4 | 5 | 1542 | 1542 | 8000 Mbps | Port 0 |
 | flow5 | 5 | 1542 | 1542 | 8000 Mbps | Port 1 |
