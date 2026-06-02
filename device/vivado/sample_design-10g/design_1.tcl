@@ -270,7 +270,7 @@ proc create_hier_cell_hier_ef_capture_tx_7 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {115} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -508,7 +508,7 @@ proc create_hier_cell_hier_ef_capture_tx_6 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {115} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -746,7 +746,7 @@ proc create_hier_cell_hier_ef_capture_tx_5 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {115} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -984,7 +984,7 @@ proc create_hier_cell_hier_ef_capture_tx_4 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {115} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1222,7 +1222,7 @@ proc create_hier_cell_hier_ef_capture_tx_3 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {98} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1341,6 +1341,7 @@ proc create_hier_cell_hier_ef_capture_rx_3 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
+   CONFIG.LATENCY_OFFSET_CYCLE {17} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1460,7 +1461,7 @@ proc create_hier_cell_hier_ef_capture_tx_2 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {98} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1579,6 +1580,7 @@ proc create_hier_cell_hier_ef_capture_rx_2 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
+   CONFIG.LATENCY_OFFSET_CYCLE {17} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1698,7 +1700,7 @@ proc create_hier_cell_hier_ef_capture_tx_1 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {98} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1817,6 +1819,7 @@ proc create_hier_cell_hier_ef_capture_rx_1 { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
+   CONFIG.LATENCY_OFFSET_CYCLE {17} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -1936,7 +1939,7 @@ proc create_hier_cell_hier_ef_capture_tx { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
-   CONFIG.LATENCY_OFFSET_CYCLE {97} \
+   CONFIG.LATENCY_OFFSET_CYCLE {98} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -2055,6 +2058,7 @@ proc create_hier_cell_hier_ef_capture_rx { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.BRAMADDR_WIDTH {19} \
    CONFIG.DATA_WIDTH {64} \
+   CONFIG.LATENCY_OFFSET_CYCLE {17} \
  ] $ef_capture_0
 
   # Create interface connections
@@ -3939,21 +3943,21 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set dual0_gtm_refclk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 dual0_gtm_refclk ]
   set_property -dict [ list \
-   CONFIG.FREQ_HZ {156250000} \
+   CONFIG.FREQ_HZ {161132812} \
    ] $dual0_gtm_refclk
 
   set dual0_gtm_tx_out [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_xxv_ethernet:gt_ports:2.0 dual0_gtm_tx_out ]
 
   set dual1_gtm_refclk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 dual1_gtm_refclk ]
   set_property -dict [ list \
-   CONFIG.FREQ_HZ {156250000} \
+   CONFIG.FREQ_HZ {161132812} \
    ] $dual1_gtm_refclk
 
   set dual1_gtm_tx_out [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_xxv_ethernet:gt_ports:2.0 dual1_gtm_tx_out ]
 
   set gty_refclk [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 gty_refclk ]
   set_property -dict [ list \
-   CONFIG.FREQ_HZ {156250000} \
+   CONFIG.FREQ_HZ {161132812} \
    ] $gty_refclk
 
   set gty_tx_out [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_xxv_ethernet:gt_ports:2.0 gty_tx_out ]
@@ -4115,7 +4119,7 @@ proc create_root_design { parentCell } {
    CONFIG.ENABLE_PIPELINE_REG {0} \
    CONFIG.ETHERNET_BOARD_INTERFACE {Custom} \
    CONFIG.GT_GROUP_SELECT {Quad_X0Y0} \
-   CONFIG.GT_REF_CLK_FREQ {156.25} \
+   CONFIG.GT_REF_CLK_FREQ {161.1328125} \
    CONFIG.GT_TYPE {GTY} \
    CONFIG.INCLUDE_AXI4_INTERFACE {1} \
    CONFIG.INCLUDE_STATISTICS_COUNTERS {1} \
@@ -4141,7 +4145,7 @@ proc create_root_design { parentCell } {
    CONFIG.ETHERNET_BOARD_INTERFACE {Custom} \
    CONFIG.GTM_GROUP_SELECT {GTM_DUAL_X0Y0} \
    CONFIG.GT_GROUP_SELECT {Quad_X0Y0} \
-   CONFIG.GT_REF_CLK_FREQ {156.25} \
+   CONFIG.GT_REF_CLK_FREQ {161.1328125} \
    CONFIG.GT_TYPE {GTM} \
    CONFIG.INCLUDE_AXI4_INTERFACE {1} \
    CONFIG.INCLUDE_STATISTICS_COUNTERS {1} \
@@ -4167,7 +4171,7 @@ proc create_root_design { parentCell } {
    CONFIG.ETHERNET_BOARD_INTERFACE {Custom} \
    CONFIG.GTM_GROUP_SELECT {GTM_DUAL_X0Y1} \
    CONFIG.GT_GROUP_SELECT {Quad_X0Y0} \
-   CONFIG.GT_REF_CLK_FREQ {156.25} \
+   CONFIG.GT_REF_CLK_FREQ {161.1328125} \
    CONFIG.GT_TYPE {GTM} \
    CONFIG.INCLUDE_AXI4_INTERFACE {1} \
    CONFIG.INCLUDE_STATISTICS_COUNTERS {1} \
@@ -4182,7 +4186,7 @@ proc create_root_design { parentCell } {
  ] $xxv_ethernet_2
 
   # Create interface connections
-  connect_bd_intf_net -intf_net gt_ref_clk_0_1 [get_bd_intf_ports dual1_gtm_refclk] [get_bd_intf_pins xxv_ethernet_2/gt_ref_clk]
+  connect_bd_intf_net -intf_net diff_clock_rtl_0_3 [get_bd_intf_ports dual1_gtm_refclk] [get_bd_intf_pins xxv_ethernet_2/gt_ref_clk]
   connect_bd_intf_net -intf_net hier_axis_switch_M00_MAC0_AXIS [get_bd_intf_pins hier_axis_switch/M00_MAC0_AXIS] [get_bd_intf_pins hier_mac_0/tx_saxis]
 connect_bd_intf_net -intf_net [get_bd_intf_nets hier_axis_switch_M00_MAC0_AXIS] [get_bd_intf_pins hier_axis_switch/M00_MAC0_AXIS] [get_bd_intf_pins system_ila_0/SLOT_2_AXIS]
   set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets hier_axis_switch_M00_MAC0_AXIS]
@@ -4240,8 +4244,8 @@ connect_bd_intf_net -intf_net [get_bd_intf_nets hier_mac_1_rx_maxis] [get_bd_int
   connect_bd_intf_net -intf_net microblaze_0_axi_periph_M06_AXI [get_bd_intf_pins microblaze_0_axi_periph/M06_AXI] [get_bd_intf_pins xxv_ethernet_1/s_axi_1]
   connect_bd_intf_net -intf_net microblaze_0_axi_periph_M07_AXI [get_bd_intf_pins microblaze_0_axi_periph/M07_AXI] [get_bd_intf_pins xxv_ethernet_2/s_axi_0]
   connect_bd_intf_net -intf_net microblaze_0_axi_periph_M08_AXI [get_bd_intf_pins microblaze_0_axi_periph/M08_AXI] [get_bd_intf_pins xxv_ethernet_2/s_axi_1]
-  connect_bd_intf_net -intf_net qsfp0_156mhz_1 [get_bd_intf_ports gty_refclk] [get_bd_intf_pins xxv_ethernet_0/gt_ref_clk]
-  connect_bd_intf_net -intf_net qsfp1_156mhz_1 [get_bd_intf_ports dual0_gtm_refclk] [get_bd_intf_pins xxv_ethernet_1/gt_ref_clk]
+  connect_bd_intf_net -intf_net diff_clock_rtl_0_1 [get_bd_intf_ports gty_refclk] [get_bd_intf_pins xxv_ethernet_0/gt_ref_clk]
+  connect_bd_intf_net -intf_net diff_clock_rtl_0_2 [get_bd_intf_ports dual0_gtm_refclk] [get_bd_intf_pins xxv_ethernet_1/gt_ref_clk]
   connect_bd_intf_net -intf_net smartconnect_0_M00_AXI [get_bd_intf_pins hier_ef_crafter/S_AXI156] [get_bd_intf_pins smartconnect_156M/M00_AXI]
   connect_bd_intf_net -intf_net smartconnect_0_M01_AXI [get_bd_intf_pins hier_mac_0/S_AXI156] [get_bd_intf_pins smartconnect_156M/M01_AXI]
   connect_bd_intf_net -intf_net smartconnect_0_M02_AXI [get_bd_intf_pins hier_mac_1/S_AXI156] [get_bd_intf_pins smartconnect_156M/M02_AXI]

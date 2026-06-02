@@ -208,10 +208,32 @@ The design was implemented and validated using the following environment
 - The BRAM size for each ef capture is 512 KBytes, which can record timestamps for 65536 frames
 
 #### About adjusting the latency correction value
-As with the timestamp correction values explained in the `Latency Correction` chapter of [ef_capture/specification.md](../ef_capture/specification.md), the ef_capture IP for TX is set as follows because the latency varies depending on the transceiver configuration.
-- U45n: 97 cycles or 518.4 ns
-- U250: 81 cycles or 602.8 ns
-This value is based on actual measurement results when using a 3m cable, but since the latency may change depending on the length and material of the cable, it is necessary to check whether the latency correction value is appropriate in the actual environment where it will be used.
+The latency correction values described in the `Latency Correction` chapter of [ef_capture/specification.md](../ef_capture/specification.md) are as follows for the U250, which uses only one type of high‑speed serial transceiver called GTY.
+- U250: 81 cycles or 518.4 ns
+
+On the other hand, the U45N uses, in addition to the same GTY as the U250, a high‑speed serial transceiver called GTM with different characteristics.  
+Ports using GTM have about 17 cycles higher latency for both transmission and reception compared to ports using GTY.  
+Therefore, for the U45N, the following latency correction is required depending on the combination of ports used.
+- U45N (GTY -> GTY): 81 cycles or 518.4 ns (same as U250)
+- U45N (GTY -> GTM): 98 cycles or 627.2 ns (+17 cycles compared to U250)
+- U45N (GTM -> GTY): 98 cycles or 627.2 ns (+17 cycles compared to U250)
+- U45N (GTM -> GTM): 115 cycles or 736.0 ns (+34 cycles compared to U250)
+
+To ensure that the appropriate correction value is applied automatically, the offset value of U45N is set as follows.  
+Since latency is calculated by subtracting the TX timestamp from the RX timestamp, the correction value is obtained by subtracting the RX‑side offset from the TX‑side offset,   which matches the correction value corresponding to the GT combinations mentioned above.
+
+|                  | ef_capture offset (TX side)    | ef_capture offset (RX side)  |
+| ------           | ------        | ------       |
+| Port 0 - 3 (GTY) |    98 cycle   |  17 cycle    |
+| Port 4 - 7 (GTM) |   115 cycle   |   0 cycle    |
+
+Since all ports of the U250 use only GTY, the offset value for the U250 is set as follows.
+
+|                  | ef_capture offset (TX side)    | ef_capture offset (RX side)  |
+| ------           | ------        | ------       |
+| Port 0 - 7 (GTY) |    81 cycle   |  0 cycle     |
+
+These correction values are based on actual measurement results when using a 3m cable, but since the latency may change depending on the length and material of the cable, it is necessary to check whether the latency correction values are appropriate in the actual environment where it will be used.
 
 To verify the correction value, you just need to check that the latency when the cable is directly connected is 0 cycles.  
 However, because the measurement resolution is 1 cycle, the measurement will include an error of 1 cycle.
