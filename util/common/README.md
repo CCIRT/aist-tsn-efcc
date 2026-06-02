@@ -13,11 +13,11 @@ This directory contains Python scripts that facilitate register modification in 
     ├── :
 ```
 
-Please set `PYTHONPATH` to include python modules.   
+Please set `PYTHONPATH` to include python modules.  
 This directory contains python modules for TSN-EFCC.
 
 ```sh
-$ export PYTHONPATH=$(pwd)/../../tsn-switch/util/python:${PYTHONPATH}
+$ export PYTHONPATH=$(pwd)/../../../aist-tsn-switch/util/python:${PYTHONPATH}
 ```
 
 Test importing.
@@ -27,7 +27,7 @@ $ python3 -c "import tsn_efcc" && echo "Import succeed"
 Import succeed
 ```
 
-Add xsdb to `PATH`.  
+Add xsdb to `PATH`.
 
 ```sh
 cd /vivado_or_vivado_lab/install/dir

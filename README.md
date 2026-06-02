@@ -39,6 +39,13 @@ Please prepare the following environment.
   - Set Vivado to `PATH`
 - Set `XILINXD_LICENSE_FILE` to environment variables
 
+Change the PATH search order to avoid using the old cmake included in the Vivado directory.
+
+```sh
+(after vivado setting. e.g. "source <VIVADO_ROOT>/settings64.sh")
+export PATH=/usr/local/bin:/usr/bin:$PATH
+```
+
 All designs will be built by running the command below.
 
 ```sh
