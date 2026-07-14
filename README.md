@@ -26,6 +26,16 @@ When using the provided designs in this repository, please refer to the followin
 >
 > Best Paper Award Candidate🏆
 
+This work uses EFCC as a nanosecond-resolution measurement platform to experimentally evaluate the transmission timing accuracy of NVIDIA ConnectX-7 Accurate Scheduling and the precision of hardware receive/transmit timestamping. EFCC enables deterministic frame generation and hardware-based timestamp capture, allowing detailed characterization of commercial Ethernet NIC timing behavior.
+
+## Use cases
+
+This work demonstrates the use of EFCC as a high-precision Ethernet measurement platform. Using deterministic frame generation and nanosecond-resolution hardware timestamping provided by EFCC, the paper experimentally evaluates the timing accuracy of NVIDIA ConnectX-7 Accurate Scheduling and hardware timestamping, revealing sub-microsecond transmission accuracy and nanosecond-level timestamp precision.
+
+> Takahiro HIROFUCHI and Takaaki FUKAI, "An Experimental Evaluation of Accurate Scheduling and Hardware Timestamping on NVIDIA ConnectX NICs", arXiv:2607.11305, 2026.
+>
+> [Paper](https://arxiv.org/abs/2607.11305)
+
 
 ## Build Device
 
